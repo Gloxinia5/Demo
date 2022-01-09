@@ -25,7 +25,6 @@ for i in range(height + 1):
 print(" ")
 
 #180 degree half pyramid
-
 for i in range(height + 1):
     for j in range(height - i):
         print("#", end = "")
@@ -39,6 +38,7 @@ for i in range(height + 1):
     for h in range(i + 1):
         print(" ", end = "")
 print("")
+
 #180 degree pyramid
 for i in range(height + 1):
     for j in range(i+1):
