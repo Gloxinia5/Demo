@@ -6,7 +6,6 @@ for i in range(height + 1):
         print("#", end = "")
     print(" ")
 
-
 #reverse half pyramid
 for i in range(height + 1):
     for j in range(height - i):
@@ -46,4 +45,3 @@ for i in range(height + 1):
     for h in range(((height + height) - j) - j):
         print("#", end = "")
     print()
-
