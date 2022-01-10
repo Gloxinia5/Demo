@@ -8,6 +8,7 @@ WINDOW_WIDTH = 928
 WINDOW_HEIGHT = 793
 isRunning = True
 isJump = False
+jumpCount = 10
 
 #backround
 bg = pygame.image.load('Background.png')
@@ -30,6 +31,9 @@ pygame.display.set_caption("Pygame")
 while isRunning:
     pygame.time.delay(20)
 
+    playerLoop = 1
+
+
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             isRunning = False
@@ -40,15 +44,23 @@ while isRunning:
         playerX -= vel
     if keys[pygame.K_RIGHT] and playerX < (WINDOW_WIDTH - playerWidth):
         playerX += vel
-    if keys[pygame.K_SPACE]:
-        playerY = playerHeight + vel
-        isJump = True
     if not(isJump):
+        if keys[pygame.K_SPACE]:
+            isJump = True
         if keys[pygame.K_UP] and playerY > vel:
             playerY -= vel
         if keys[pygame.K_DOWN] and playerY < (WINDOW_HEIGHT - playerHeight):
             playerY += vel
-    isJump = False
+    else:
+        if jumpCount >= -10:
+            neg = 1
+            if jumpCount < 0:
+                neg = -1
+            playerY -= jumpCount ** 2 / 2 * neg
+            jumpCount -= 1
+        else:
+            isJump = False
+            jumpCount = 10
     window.fill((0, 0, 0))
     pygame.draw.rect(window, (255, 0, 0), (playerX, playerY, playerWidth, playerHeight))
     pygame.display.update()
