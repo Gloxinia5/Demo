@@ -4,10 +4,14 @@ import pygame
 pygame.init()
 
 #Variables
-WINDOW_WIDTH = 500
-WINDOW_HEIGHT = 500
+WINDOW_WIDTH = 928
+WINDOW_HEIGHT = 793
 isRunning = True
 
+#backround
+bg = pygame.image.load('asset/Backround.png')
+
+#player
 #Game main window
 window = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
 pygame.display.set_caption("Pygame")
@@ -18,6 +22,7 @@ while isRunning:
         if event.type == pygame.QUIT:
             isRunning = False
 
-    window.fill((255, 0, 0))
+    window.fill((69, 69, 69))
     pygame.display.update()
+
 
